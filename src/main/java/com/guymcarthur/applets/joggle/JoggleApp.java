@@ -280,7 +280,7 @@ public class JoggleApp extends Frame
         Control.add(StartButton);
         Control.add(PauseButton);
         Control.add(SkillChoice);
-        Status.add(Round);
+        // TODO move Status.add(Round);
 
         PlayerScore = new Label("0", Label.RIGHT);
         ComputerScore = new Label("0", Label.RIGHT);
@@ -444,46 +444,59 @@ public class JoggleApp extends Frame
         /* Initialize self */
         //setBackground(Color.white);
 
-        setLayout(new GridBagLayout());
-        // row 0
-        int row = 0;
+        setLayout(new FlowLayout());
 
-        GridBagManager.add(this, Control, row, 0, 1, 7, HORIZONTAL, SOUTHEAST);
-        GridBagManager.add(this, Status, row, 7, 1, 1, HORIZONTAL, SOUTHEAST);
         // row 1
-        GridBagManager.add(this, new Label("Player:"), ++row, 0, 1, 1);
-        GridBagManager.add(this, new Label("Score"), row, 1, 1, 1);
-        GridBagManager.add(this, PlayerScore, row, 2, 1, 2, HORIZONTAL, WEST);
-        GridBagManager.add(this, new Label("Total"), row, 4, 1, 1);
-        GridBagManager.add(this, PlayerTotal, row, 5, 1, 2, HORIZONTAL, WEST);
+        add(Control);
 
         // row 2
-        GridBagManager.add(this, new Label("Computer:"), ++row, 0, 1, 1);
-        GridBagManager.add(this, new Label("Score"), row, 1, 1, 1);
-        GridBagManager.add(this, ComputerScore, row, 2, 1, 2);
-        GridBagManager.add(this, new Label("Total"), row, 4, 1, 1);
-        GridBagManager.add(this, ComputerTotal, row, 5, 1, 2);
+        add(Status);
 
+        Panel ScorePanel = new Panel(new GridLayout(2, 6));
+        ScorePanel.add(Round);
+        ScorePanel.add(new Label("Player:"));
+        ScorePanel.add(new Label("Score", Label.RIGHT));
+        ScorePanel.add(PlayerScore);
+        ScorePanel.add(new Label("Total", Label.RIGHT));
+        ScorePanel.add(PlayerTotal);
+        ScorePanel.add(new Label());
+        ScorePanel.add(new Label("Computer:"));
+        ScorePanel.add(new Label("Score", Label.RIGHT));
+        ScorePanel.add(ComputerScore);
+        ScorePanel.add(new Label("Total", Label.RIGHT));
+        ScorePanel.add(ComputerTotal);
+ 
         // row 3
-        GridBagManager.add(this, canvas, ++row, 0, 8, 8);
+        add(ScorePanel);
+ 
+        // row 4
+        add(canvas);
 
-        // row 11
-        GridBagManager.add(this, PlayerEntry, row = 11, 0, 1, 8, BOTH, WEST);
-        // row 12
-        GridBagManager.add(this, EntryLabel, ++row, 0, 1, 8, BOTH, WEST);
-        // row 13
-        GridBagManager.add(this, PlayerMessages, ++row, 0, 2, 8, HORIZONTAL, WEST);
-        // row 15
-        GridBagManager.add(this, PlayerWords, row = 15, 0, 2, 4, NONE, WEST);
-        GridBagManager.add(this, ComputerWords, row, 4, 2, 4, HORIZONTAL, WEST);
-        // row 17
-        GridBagManager.add(this, new Label("Player's Words"), row = 17, 0, 1, 4, BOTH, WEST);
-        GridBagManager.add(this, new Label("Computer's Words"), row, 4, 1, 4, BOTH, WEST);
+        // row 5
+        add(PlayerEntry);
 
-        // row 18
-        GridBagManager.add(this, Timer, ++row, 0, 1, 8, BOTH, CENTER);
-        // row 19
-        GridBagManager.add(this, ScrollLabel, ++row, 0, 1, 8, BOTH, WEST);
+        // row 6
+        add(EntryLabel);
+        
+        // row 7
+        //add(PlayerMessages);
+
+        Panel BottomPanel = new Panel(new GridBagLayout());
+
+        GridBagManager.add(BottomPanel, PlayerMessages, 0, 0, 1, 2, GridBagConstraints.BOTH, GridBagConstraints.CENTER);        
+        GridBagManager.add(BottomPanel, PlayerWords, 1, 0);
+        GridBagManager.add(BottomPanel, ComputerWords, 1, 1);
+        GridBagManager.add(BottomPanel, new Label("Player's Words"), 2, 0);
+        GridBagManager.add(BottomPanel, new Label("Computer's Words"), 2, 1);
+
+        GridBagManager.add(BottomPanel, Timer, 3, 0, 1, 2, GridBagConstraints.BOTH, GridBagConstraints.CENTER);
+        GridBagManager.add(BottomPanel, ScrollLabel, 4, 0, 1, 2, GridBagConstraints.BOTH, GridBagConstraints.CENTER);
+
+        // row 8
+        add(BottomPanel);
+        //add(Timer);
+        //add(ScrollLabel);
+
     }// end method init
 
     /**
