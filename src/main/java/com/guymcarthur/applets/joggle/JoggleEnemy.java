@@ -1,14 +1,13 @@
 package com.guymcarthur.applets.joggle;
 
-import com.guymcarthur.Debuggable;
 import com.guymcarthur.util.CachingWordList;
 
 /**
  * Implements a computer player.
  * Intended to be run in a background thread.
  */
-public class JoggleEnemy extends JoggleGame implements Runnable, Debuggable {
-  protected boolean debug, active; //stop is deprecated
+public class JoggleEnemy extends JoggleGame implements Runnable {
+  protected boolean debug=System.getProperty("DEBUG") != null, active; //stop is deprecated
   protected int skill=100;
   
   public static final int SKILL_NOVICE = 0;
@@ -45,14 +44,6 @@ public class JoggleEnemy extends JoggleGame implements Runnable, Debuggable {
 
   public boolean isActive() {
     return active;
-  }
-
-  public boolean isDebug() {
-    return debug;
-  }
-
-  public void setDebug(boolean debug) {
-    this.debug=debug;
   }
 
   public void run() {
