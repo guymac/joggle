@@ -17,6 +17,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven.compiler.source>11</maven.compiler.source>
+		<main.classname>com.guymcarthur.applets.joggle.JoggleApp</main.classname>
 	</properties>
 
 	<build>
@@ -37,9 +38,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>
-								com.guymcarthur.applets.joggle.JoggleApp
-							</mainClass>
+							<mainClass>${main.classname}</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
@@ -50,7 +49,7 @@
 				<version>3.1.0</version>
 				<extensions>true</extensions>
 				<configuration>
-					<launcher>joggle=joggleapp/com.guymcarthur.applets.joggle.JoggleApp</launcher>
+					<launcher>joggle=joggleapp/${main.classname}</launcher>
 				</configuration>
 			</plugin>
 
