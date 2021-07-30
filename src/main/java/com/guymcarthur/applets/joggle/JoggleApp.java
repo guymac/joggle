@@ -291,7 +291,7 @@ public class JoggleApp extends Frame
 
         PlayerEntry = new TextField(36);
         PlayerEntry.setBackground(Color.lightGray);
-        EntryLabel = new Label("Input words above or click on tiles.");
+        EntryLabel = new Label("Input words above or click on tiles.", Label.CENTER);
 
         PlayerMessages = new TextArea("", 3, 20, TextArea.SCROLLBARS_VERTICAL_ONLY);
         PlayerWords = new TextArea("", 3, 15, TextArea.SCROLLBARS_VERTICAL_ONLY);
@@ -301,7 +301,7 @@ public class JoggleApp extends Frame
         ComputerWords.setBackground(Color.lightGray);
 
         Timer = new Scrollbar(Scrollbar.HORIZONTAL, 0, 1, 0, 180);
-        ScrollLabel = new Label("Press \"Start\" to initiate a game.");
+        ScrollLabel = new Label("Press \"Start\" to initiate a game.", Label.CENTER);
 
         /* Event Handlers */
         StartButton.addActionListener(new ActionListener()
@@ -478,9 +478,6 @@ public class JoggleApp extends Frame
         // row 6
         add(EntryLabel);
         
-        // row 7
-        //add(PlayerMessages);
-
         Panel BottomPanel = new Panel(new GridBagLayout());
 
         GridBagManager.add(BottomPanel, PlayerMessages, 0, 0, 1, 2, GridBagConstraints.BOTH, GridBagConstraints.CENTER);        
@@ -492,10 +489,8 @@ public class JoggleApp extends Frame
         GridBagManager.add(BottomPanel, Timer, 3, 0, 1, 2, GridBagConstraints.BOTH, GridBagConstraints.CENTER);
         GridBagManager.add(BottomPanel, ScrollLabel, 4, 0, 1, 2, GridBagConstraints.BOTH, GridBagConstraints.CENTER);
 
-        // row 8
+        // row 7
         add(BottomPanel);
-        //add(Timer);
-        //add(ScrollLabel);
 
     }// end method init
 
