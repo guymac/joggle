@@ -1,0 +1,19 @@
+# Faces are the set of letters.
+# qu is synonymous with q.
+# Six per line, seperated by commas.
+a, a, e, e, n, g
+e, l, d, r, x, i
+e, e, u, s, i, n
+s, e, i, t, s, o
+a, c, s, o, p, h
+h, t, u, r, w, e
+w, o, o, t, a, t
+n, e, e, h, w, g
+n, h, n, l, r, z
+c, o, u, m, t, i
+t, r, e, t, y, l
+y, e, d, l, r, v
+b, b, a, o, j, o
+s, y, i, d, t, t
+f, a, k, p, f, s
+q, u, m, h, n, i

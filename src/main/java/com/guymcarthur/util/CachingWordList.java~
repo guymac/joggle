@@ -1,0 +1,6 @@
+package com.guymcarthur.util;
+
+import java.util.*;
+
+public class CachingWordList extends WordList {
+}
