@@ -8,7 +8,7 @@
 
 	<artifactId>joggle</artifactId>
 
-	<version>1.1.1</version>
+	<version>1.2</version>
 
 	<packaging>jar</packaging>
 
@@ -30,6 +30,7 @@
 					</compilerArgs>
 				</configuration>
 			</plugin>
+			
 			<plugin>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>3.2.0</version>
