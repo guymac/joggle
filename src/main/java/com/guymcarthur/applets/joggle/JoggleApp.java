@@ -264,10 +264,10 @@ public class JoggleApp extends Frame
         
         if (!System.getProperty("os.name").contains("Mac"))
         {
-            Control.setBackground(Color.blue);
-            Control.setForeground(Color.white);
-            Status.setBackground(Color.blue);
-            Status.setForeground(Color.white);
+            //Control.setBackground(Color.blue);
+            //Control.setForeground(Color.white);
+            //Status.setBackground(Color.blue);
+            //Status.setForeground(Color.white);
                     
             StartButton.setBackground(Color.blue);
             PauseButton.setBackground(Color.blue);
@@ -476,18 +476,20 @@ public class JoggleApp extends Frame
         add(PlayerEntry);
 
         // row 6
-        add(EntryLabel);
+        //add(EntryLabel);
         
         Panel BottomPanel = new Panel(new GridBagLayout());
 
-        GridBagManager.add(BottomPanel, PlayerMessages, 0, 0, 1, 2, GridBagConstraints.BOTH, GridBagConstraints.CENTER);        
-        GridBagManager.add(BottomPanel, PlayerWords, 1, 0);
-        GridBagManager.add(BottomPanel, ComputerWords, 1, 1);
-        GridBagManager.add(BottomPanel, new Label("Player's Words"), 2, 0);
-        GridBagManager.add(BottomPanel, new Label("Computer's Words"), 2, 1);
+        int row = 0;
+        GridBagManager.add(BottomPanel, EntryLabel, row, 0, 1, 2, GridBagConstraints.BOTH, GridBagConstraints.CENTER);        
+        GridBagManager.add(BottomPanel, PlayerMessages, ++row, 0, 1, 2, GridBagConstraints.BOTH, GridBagConstraints.CENTER);        
+        GridBagManager.add(BottomPanel, PlayerWords, ++row, 0);
+        GridBagManager.add(BottomPanel, ComputerWords, row, 1);
+        GridBagManager.add(BottomPanel, new Label("Player's Words"), ++row, 0);
+        GridBagManager.add(BottomPanel, new Label("Computer's Words"), row, 1);
 
-        GridBagManager.add(BottomPanel, Timer, 3, 0, 1, 2, GridBagConstraints.BOTH, GridBagConstraints.CENTER);
-        GridBagManager.add(BottomPanel, ScrollLabel, 4, 0, 1, 2, GridBagConstraints.BOTH, GridBagConstraints.CENTER);
+        GridBagManager.add(BottomPanel, Timer, ++row, 0, 1, 2, GridBagConstraints.BOTH, GridBagConstraints.CENTER);
+        GridBagManager.add(BottomPanel, ScrollLabel, ++row, 0, 1, 2, GridBagConstraints.BOTH, GridBagConstraints.CENTER);
 
         // row 7
         add(BottomPanel);
