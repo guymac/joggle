@@ -23,8 +23,6 @@ import java.util.*;
 import com.guymcarthur.widget.GridBagManager;
 import com.guymcarthur.util.CachingWordList;
 
-import static java.awt.GridBagConstraints.*;
-
 /**
  * $Id$
  * 
@@ -569,9 +567,9 @@ public class JoggleApp extends Frame
             PlayerEntry.setText("");
             ComputerWords.setVisible(true);
 
-            for (Enumeration e = player.added.keys(); e.hasMoreElements();)
+            for (Enumeration <String> e = player.added.keys(); e.hasMoreElements();)
             {
-                String key = (String) e.nextElement();
+                String key = e.nextElement();
                 if (computer.added.containsKey(key))
                 {
                     int pts = ((Integer) player.added.get(key)).intValue();
@@ -585,16 +583,16 @@ public class JoggleApp extends Frame
             PlayerWords.setText("");
             ComputerWords.setText("");
 
-            for (Enumeration e = player.added.keys(); e.hasMoreElements();)
+            for (Enumeration <String> e = player.added.keys(); e.hasMoreElements();)
             {
-                String key = (String) e.nextElement();
+                String key = e.nextElement();
                 int pts = ((Integer) player.added.get(key)).intValue();
                 PlayerWords.append(key + " (" + pts + ")\n");
             }
 
-            for (Enumeration e = computer.added.keys(); e.hasMoreElements();)
+            for (Enumeration <String> e = computer.added.keys(); e.hasMoreElements();)
             {
-                String key = (String) e.nextElement();
+                String key = e.nextElement();
                 int pts = ((Integer) computer.added.get(key)).intValue();
                 ComputerWords.append(key + " (" + pts + ")\n");
             }
@@ -648,7 +646,7 @@ public class JoggleApp extends Frame
      * @param name relative path to file (GIF or JPG, PNG is supported in JDK 1.3)
      * @return the Image
      */
-    public Image loadImage(String name) throws IOException
+    private Image loadImage(String name) throws IOException
     {
         InputStream in = getClass().getResourceAsStream(name);
         byte[] buffer = new byte[in.available()];
