@@ -4,5 +4,5 @@ module joggleapp
     exports com.guymcarthur.util;
     exports com.guymcarthur.widget;
     
-    requires java.desktop;
+    requires transitive java.desktop;
 }
