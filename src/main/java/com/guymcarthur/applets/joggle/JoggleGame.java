@@ -12,7 +12,7 @@ public class JoggleGame extends Observable {
   protected JoggleBoard board;
   protected int score, total=0;
   protected int wordcount=0;
-  protected Hashtable added;
+  protected Hashtable <String, Integer> added;
   protected CachingWordList list;
   protected static final ChoiceFormat fmt=new ChoiceFormat(" 1# point.|1< points.");  
 
@@ -41,7 +41,7 @@ public class JoggleGame extends Observable {
    */
   public void init() {
     score=0;
-    added=new Hashtable();
+    added=new Hashtable <> ();
   }
 
   public synchronized void total() {
@@ -80,7 +80,7 @@ public class JoggleGame extends Observable {
     int pts=getPoints(word);
     //total += pts;
     synchronized(this) { score += pts; }
-    added.put(word, new Integer(pts));
+    added.put(word, Integer.valueOf(pts));
     notifyObservers(new GameMessage("\""+word+"\" scored "+pts+" "+fmt.format(pts), word, pts));
     
     return pts;
